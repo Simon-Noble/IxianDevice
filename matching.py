@@ -327,10 +327,10 @@ class Matching(commands.Cog):
                 embed=embed, allowed_mentions=mentions))
             matches[match.message.id] = match
             match.save()
-            for emoji_id in custom_emojis_to_add:
-                await match.message.add_reaction(self.bot.get_emoji(emoji_id))
-            for emoji_str in common_emojis_to_add:
-                await match.message.add_reaction(emoji_str)
+            # for emoji_id in custom_emojis_to_add:
+            #     await match.message.add_reaction(self.bot.get_emoji(emoji_id))
+            # for emoji_str in common_emojis_to_add:
+            #     await match.message.add_reaction(emoji_str)
             await match.update()
 
     @commands.command(aliases=['remove'])
