@@ -1,0 +1,18 @@
+
+- react in #matches or #match-setup allowed?
+- bot goes offline after time of inactivity? can be reconnected from the console
+- reserve spot for non-discorders
+- sign up with factions using faction emotes
+- player banlist
+- epoch time stamps
+
+!edit and !editDate should be options
+examples
+
+!remindme 10 hours etc. command
+
+see Poudaddy DMs
+
+audit log
+
+Hosting: AWS EC2

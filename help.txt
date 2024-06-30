@@ -1,0 +1,18 @@
+**create match:** `!new` or `!lfg`
+for example: `!new thursday 6:30 pm UTC+1 ! basic rules`
+keep daylight savings time in mind! (use PDT instead of PST when appropriate, for example)
+want to find out more? -> `!help new`
+
+**sign up for a match:** react in the "matches"-channel
+:spice: or :white_check_mark: or :beer: or :Lozenge:  -> "YES"
+:worthless: or :question: or :Traitor: -> "MAYBE"
+
+**delete your match:**
+react in #matches using :x:
+you can only delete matches you yourself scheduled
+
+**edit your match:**
+Edit your most recent match with !text, !time, or !edit. For example:
+!text Vanilla Advanced -> match text becomes 'Vanilla Advanced'
+!time tomorrow, 10pm UTC+1 -> match time becomes tomorrow, 10pm UTC+1
+!edit tomorrow, 10pm UTC+1 ! Vanilla Advanced -> match time becomes tomorrow, 10pm UTC+1 and match text becomes 'tomorrow, 10pm UTC+1 ! Vanilla Advanced'
