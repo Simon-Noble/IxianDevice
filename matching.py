@@ -303,13 +303,13 @@ class Matching(commands.Cog):
                 'creation_msg_id'], invites_sent=v['invites_sent'])
         asyncio.ensure_future(update_timer())
 
-    @commands.command()
+    @commands.hybrid_command()
     async def help(self, ctx, arg=''):
         if ctx.channel.id in channels:
             await ctx.channel.send(files.get_help(arg),
                                    allowed_mentions=mentions)
 
-    @commands.command(aliases=['new'])
+    @commands.hybrid_command(aliases=['new'])
     async def lfg(self, ctx, *, text):
         print(f'!lfg {text}')
         print(f'creation_msg: {ctx.message.jump_url}')
@@ -332,14 +332,14 @@ class Matching(commands.Cog):
                 await match.message.add_reaction(emoji_str)
             await match.update()
 
-    @commands.command(aliases=['remove'])
+    @commands.hybrid_command(aliases=['remove'])
     async def delete(self, ctx):
         for match in matches.values():
             if match.host == ctx.author.id:
                 match_to_delete = match
         match_to_delete.mark_delete()
 
-    @commands.command()
+    @commands.hybrid_command()
     async def edit(self, ctx, *, text):
         for match in matches.values():
             if match.host == ctx.author.id:
@@ -348,7 +348,7 @@ class Matching(commands.Cog):
         match_to_edit.edit_note(text)
         await match.update()
 
-    @commands.command(aliases=edit_date_aliases)
+    @commands.hybrid_command(aliases=edit_date_aliases)
     async def edit_date(self, ctx, *, text):
         for match in matches.values():
             if match.host == ctx.author.id:
@@ -356,7 +356,7 @@ class Matching(commands.Cog):
         match_to_edit.edit_time(text)
         await match.update()
 
-    @commands.command(aliases=edit_text_aliases)
+    @commands.hybrid_command(aliases=edit_text_aliases)
     async def edit_text(self, ctx, *, text):
         for match in matches.values():
             if match.host == ctx.author.id:
