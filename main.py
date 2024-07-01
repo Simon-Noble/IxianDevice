@@ -33,6 +33,11 @@ async def on_ready():
     await bot.add_cog(audit.Audit(bot))
     await bot.add_cog(voice.Voice(bot))
     await bot.add_cog(pin.Pin(bot))
+    try:
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} commands.")
+    except Exception as e:
+        print(e)
 
 
 @bot.command()
