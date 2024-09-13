@@ -408,26 +408,32 @@ class Matching(commands.Cog):
                 if user_id == match.get_host():
                     print('mark delete: {0}'.format(msg_id))
                     match.mark_delete()
+                elif self.bot.get_user(user_id).bot:
+                    pass
                 else:
                     error_message = "You cannot delete this match because " \
                                     "you are not its creator!"
                     await self.bot.get_user(user_id).send(error_message)
             elif emojis[emoji] == edit:
-                if user_id == match.get_host():
-                    message = "✍️Edit your most recent match with !text, " \
-                              "!time, or !edit. For example:\n"
-                    message += "!text Vanilla Advanced -> match text " \
-                               "becomes 'Vanilla Advanced'\n"
-                    message += "!time tomorrow, 10pm UTC+1 -> match time " \
-                               "becomes tomorrow, 10pm UTC+1\n"
-                    message += "!edit tomorrow, 10pm UTC+1 ! Vanilla " \
-                               "Advanced -> match time becomes tomorrow, " \
-                               "10pm UTC+1 and match text becomes 'tomorrow," \
-                               " 10pm UTC+1 ! Vanilla Advanced'"
+                if self.bot.get_user(user_id).bot:
+                    pass
                 else:
-                    message = "You cannot edit this match because " \
-                              "you are not its creator!"
-                await self.bot.get_user(user_id).send(message)
+                    if user_id == match.get_host():
+                        message = "✍️Edit your most recent match with !text, " \
+                                  "!time, or !edit. For example:\n"
+                        message += "!text Vanilla Advanced -> match text " \
+                                   "becomes 'Vanilla Advanced'\n"
+                        message += "!time tomorrow, 10pm UTC+1 -> match time " \
+                                   "becomes tomorrow, 10pm UTC+1\n"
+                        message += "!edit tomorrow, 10pm UTC+1 ! Vanilla " \
+                                   "Advanced -> match time becomes tomorrow, " \
+                                   "10pm UTC+1 and match text becomes 'tomorrow," \
+                                   " 10pm UTC+1 ! Vanilla Advanced'"
+
+                    else:
+                        message = "You cannot edit this match because " \
+                                  "you are not its creator!"
+                        await self.bot.get_user(user_id).send(message)
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
